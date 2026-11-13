@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Figtree:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  /* display / brand: Outfit */
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  /* everything else: Figtree */
+  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-display);
+  --font-body: var(--font-sans);
+  --font-label: var(--font-sans);
+  /* page canvas: clean near white with a cool cast */
+  --background-50: 0.996 0.002 250;
+  --background-100: 0.978 0.006 250;
+  --background-200: 0.951 0.010 250;
+  --background-300: 0.912 0.014 250;
+  --background-400: 0.842 0.018 250;
+  --background-500: 0.735 0.022 252;
+  --background-600: 0.620 0.026 252;
+  --background-700: 0.500 0.030 252;
+  --background-800: 0.385 0.032 254;
+  --background-900: 0.285 0.032 256;
+  --background-950: 0.190 0.030 258;
+  /* primary: deep navy */
+  --primary-50: 0.968 0.014 258;
+  --primary-100: 0.930 0.028 258;
+  --primary-200: 0.870 0.045 258;
+  --primary-300: 0.790 0.060 258;
+  --primary-400: 0.630 0.090 258;
+  --primary-500: 0.300 0.075 262;
+  --primary-600: 0.255 0.068 262;
+  --primary-700: 0.215 0.058 262;
+  --primary-800: 0.178 0.048 262;
+  --primary-900: 0.145 0.038 262;
+  --primary-950: 0.110 0.030 262;
+  /* accent: teal signal */
+  --accent-50: 0.975 0.020 190;
+  --accent-100: 0.945 0.045 190;
+  --accent-200: 0.900 0.070 190;
+  --accent-300: 0.840 0.090 190;
+  --accent-400: 0.755 0.106 190;
+  --accent-500: 0.665 0.108 190;
+  --accent-600: 0.580 0.098 192;
+  --accent-700: 0.490 0.085 194;
+  --accent-800: 0.400 0.070 196;
+  --accent-900: 0.330 0.058 198;
+  --accent-950: 0.250 0.045 200;
+  /* secondary: cool slate support */
+  --secondary-50: 0.976 0.008 250;
+  --secondary-100: 0.955 0.013 250;
+  --secondary-200: 0.918 0.018 250;
+  --secondary-300: 0.862 0.024 252;
+  --secondary-400: 0.775 0.028 252;
+  --secondary-500: 0.660 0.030 252;
+  --secondary-600: 0.550 0.032 254;
+  --secondary-700: 0.450 0.032 254;
+  --secondary-800: 0.360 0.030 256;
+  --secondary-900: 0.285 0.026 256;
+  --secondary-950: 0.200 0.022 256;
+  /* foreground text scale */
+  --foreground-50: 0.980 0.004 250;
+  --foreground-100: 0.955 0.008 250;
+  --foreground-200: 0.900 0.012 252;
+  --foreground-300: 0.820 0.016 252;
+  --foreground-400: 0.720 0.020 254;
+  --foreground-500: 0.620 0.024 254;
+  --foreground-600: 0.520 0.026 256;
+  --foreground-700: 0.420 0.028 256;
+  --foreground-800: 0.330 0.028 258;
+  --foreground-900: 0.240 0.026 258;
+  --foreground-950: 0.160 0.020 258;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font-body);
+  background-color: oklch(var(--background-50));
+  color: oklch(var(--foreground-800));
+  font-size: 14px;
+  line-height: 1.62;
+  letter-spacing: -0.002em;
+  font-feature-settings: 'ss01' on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: oklch(var(--foreground-950));
+}
+.font-display {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.k-label {
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(var(--foreground-400));
+}
+.k-num {
+  font-family: var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+}
+.k-card {
+  border-radius: 16px;
+  border: 1px solid oklch(var(--background-200));
+  background-color: oklch(var(--background-50));
+}
+.k-glass {
+  background-color: oklch(var(--background-50) / 0.82);
+  backdrop-filter: blur(14px);
+}
+.k-grid {
+  background-image:
+    linear-gradient(to right, oklch(var(--background-300) / 0.55) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(var(--background-300) / 0.55) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.k-map {
+  background-color: oklch(var(--accent-50));
+  background-image:
+    radial-gradient(1200px 500px at 20% 10%, oklch(var(--accent-100) / 0.9), transparent 70%),
+    radial-gradient(900px 420px at 90% 90%, oklch(var(--background-200) / 0.9), transparent 70%);
+}
+.k-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(oklch(var(--background-50) / 0.35) 0.5px, transparent 0.5px);
+  background-size: 5px 5px;
+}
+::selection {
+  background-color: oklch(var(--accent-200));
+  color: oklch(var(--primary-950));
+}
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--background-300));
+  border-radius: 999px;
+  border: 2px solid oklch(var(--background-50));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--background-400));
+}
+:focus-visible {
+  outline: 2px solid oklch(var(--accent-500));
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+@keyframes kFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.k-fade {
+  animation: kFade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes kRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.k-rise {
+  animation: kRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes kPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.k-ping {
+  animation: kPulse 2.4s ease-out infinite;
+}
+@keyframes kKen {
+  0% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+.k-kenburns {
+  animation: kKen 28s ease-in-out infinite alternate;
+}
+@keyframes kFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.k-float {
+  animation: kFloat 7s ease-in-out infinite;
+}
+@keyframes kToast {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.k-toast {
+  animation: kToast 0.22s ease both;
+}
+@keyframes kSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.k-spin {
+  animation: kSpin 0.9s linear infinite;
+}
+.k-hide-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+input[type='range'] {
+  accent-color: oklch(var(--accent-600));
+}
+input[type='range'].k-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+input[type='range'].k-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  cursor: grab;
+}
+input[type='range'].k-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: grab;
+}
+@media (prefers-reduced-motion: reduce) {
+  .k-fade,
+  .k-rise,
+  .k-float,
+  .k-ping,
+  .k-kenburns {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
